@@ -1,14 +1,26 @@
 {
-  "name": "javascript-algorithms-and-data-structures-MBC",
+  "name": "javascript-algorithms-and-data-structures",
   "version": "0.0.1",
-  "description": "Algorithms and data-structures implemented on JavaScript",
+  "description": "Algorithms and data-structures implemented on JavaScript by BadCoder",
   "main": "index.js",
-  "repository": "https+git@github.com:MegaBadCoder/algorithms-js.git",
-  "author": "BadCoder",
+  "repository": "git@github.com:MegaBadCoder/algorithms-js.git",
+  "author": "Ilya Seliverstov <i.seliverstov@citynature.ri>",
+  "scripts": {
+    "test": "jest"
+  },
   "license": "MIT",
-  "dependencies": {
-    "@babel/cli": "^7.16.8",
-    "@babel/preset-env": "^7.16.8",
-    "eslint-plugin-import": "^2.25.4"
+  "devDependencies": {
+    "@babel/cli": "7.15.7",
+    "@babel/preset-env": "7.15.8",
+    "@types/jest": "27.0.2",
+    "canvas": "2.8.0",
+    "eslint": "8.0.1",
+    "eslint-config-airbnb": "18.2.1",
+    "eslint-plugin-import": "2.25.2",
+    "eslint-plugin-jest": "25.2.2",
+    "eslint-plugin-jsx-a11y": "6.4.1",
+    "eslint-plugin-react": "7.26.1",
+    "husky": "7.0.2",
+    "jest": "27.3.0"
   }
 }
