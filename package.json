@@ -1,0 +1,14 @@
+{
+  "name": "javascript-algorithms-and-data-structures-MBC",
+  "version": "0.0.1",
+  "description": "Algorithms and data-structures implemented on JavaScript",
+  "main": "index.js",
+  "repository": "https+git@github.com:MegaBadCoder/algorithms-js.git",
+  "author": "BadCoder",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/cli": "^7.16.8",
+    "@babel/preset-env": "^7.16.8",
+    "eslint-plugin-import": "^2.25.4"
+  }
+}
