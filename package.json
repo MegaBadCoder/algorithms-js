@@ -6,7 +6,10 @@
   "repository": "git@github.com:MegaBadCoder/algorithms-js.git",
   "author": "Ilya Seliverstov <i.seliverstov@citynature.ri>",
   "scripts": {
-    "test": "jest"
+    "lint": "eslint ./src/**",
+    "test": "jest",
+    "coverage": "yarn test -- --coverage",
+    "ci": "yarn lint && yarn coverage"
   },
   "license": "MIT",
   "devDependencies": {
