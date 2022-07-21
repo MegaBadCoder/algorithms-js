@@ -11,14 +11,13 @@ function findSmallest(arr) {
   return smallestIndex;
 }
 
-export default function selectionSort(arr) {
+export default function selectionSort(originalArray) {
+  const arr = [...originalArray];
   const newArr = [];
-
-  for (let i = 0, l = arr.length; i <= l; i += 1) {
+  for (let i = 0; i < originalArray.length; i += 1) {
     const smallest = findSmallest(arr);
     newArr.push(arr[smallest]);
-    arr.splice(i, 1);
+    arr.splice(smallest, 1);
   }
-
   return newArr;
 }
