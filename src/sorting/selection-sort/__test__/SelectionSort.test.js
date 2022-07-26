@@ -1,6 +1,6 @@
 import selectionSort from '../SelectionSort';
 
-test('binarySearch', () => {
+test('selectionSort', () => {
   expect(selectionSort([5, 1, 3])).toStrictEqual([1, 3, 5]);
   expect(selectionSort([1, 3, 5])).toStrictEqual([1, 3, 5]);
   expect(selectionSort([])).toStrictEqual([]);
