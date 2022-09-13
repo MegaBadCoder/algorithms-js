@@ -1,54 +1,99 @@
 import LinkedListNode from './LinkedListNode';
 
 export default class LinkedList {
-  constructor(comprator) {
+  constructor() {
     this.head = null;
     this.tail = null;
-
-    this.comprator = comprator
-        || function (i, j) {
-          if (i < j) return -1;
-          if (i > j) return 1;
-          return 0;
-        };
-  }
-
-  prepend(value) {
-    const newNode = new LinkedListNode(value, this.head);
-    this.head = newNode;
-
-    if (!this.tail) this.tail = newNode;
   }
 
   append(value) {
     const newNode = new LinkedListNode(value);
-    if (this.tail) this.tail.next = newNode;
+
+    if (!this.head || !this.tail) {
+      this.head = newNode;
+      this.tail = newNode;
+
+      return this;
+    }
+
+    this.tail.next = newNode;
     this.tail = newNode;
 
-    if (this.head) this.head = newNode;
+    return this;
+  }
+
+  prepend(value) {
+    const newNode = new LinkedListNode(value, this.head);
+
+    this.head = newNode;
+
+    if (!this.tail) {
+      this.tail = newNode;
+    }
+  }
+
+  find(value) {
+    if (!this.head) return null;
+
+    let currentNode = this.head;
+
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return currentNode;
+      }
+
+      currentNode = currentNode.next;
+    }
+
+    return null;
   }
 
   delete(value) {
-    if (!this.head) return;
+    if (!this.head) {
+      return null;
+    }
 
-    while (this.head && this.comprator(this.head.value, value) === 0) {
+    let deletedNode = null;
+
+    while (this.head && this.head.value === value) {
+      deletedNode = this.head;
       this.head = this.head.next;
     }
 
-    let current = this.head;
+    let currentNode = this.head;
 
-    if (current !== null) {
-      while (current.next) {
-        if (this.comprator(current.next.value, value) === 0) {
-          current.next = current.next.next;
+    if (currentNode !== null) {
+      while (currentNode.next) {
+        if (currentNode.next.value === value) {
+          deletedNode = currentNode.next;
+          currentNode.next = currentNode.next.next;
         } else {
-          current = current.next;
+          currentNode = currentNode.next;
         }
       }
     }
 
-    if (this.comprator(this.tail.value, value) === 0) {
-      this.tail = current;
+    if (this.tail.value === value) {
+      this.tail = currentNode;
     }
+
+    return deletedNode;
+  }
+
+  toArray() {
+    const nodes = [];
+
+    let currentNode = this.head;
+
+    while (currentNode) {
+      nodes.push(currentNode);
+      currentNode = currentNode.next;
+    }
+
+    return nodes;
+  }
+
+  toString() {
+    return this.toArray().map(({ value }) => value).toString();
   }
 }
